@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مشروع أطفال فلسطين</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #f4f9fc;
+}
+
+header {
+    background: #1cabe2;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.container {
+    max-width: 420px;
+    margin: 40px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #1cabe2;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    background: #1cabe2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1593c7;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #666;
+}
+
+.success {
+    margin-top: 20px;
+    background: #e6f7ff;
+    padding: 15px;
+    border-radius: 8px;
+    color: #0a6fa5;
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>معًا لأطفال فلسطين 💙</h1>
+    <p>مشروع إنساني بالتعاون مع بنك فلسطين</p>
+</header>
+
+<div class="container">
+    <h2>تسجيل المعلومات</h2>
+
+    <label>رقم الهوية</label>
+    <input type="text" id="idNumber" placeholder="أدخل رقم الهوية">
+
+    <label>الاسم الكامل</label>
+    <input type="text" id="fullName" placeholder="أدخل اسمك">
+
+    <label>رقم الهاتف</label>
+    <input type="text" id="phone" placeholder="05XXXXXXXX">
+
+    <button onclick="submitForm()">إرسال</button>
+
+    <div class="success" id="result"></div>
+</div>
+
+<div class="footer">
+    هذا الموقع مخصص لدعم الأطفال |
+</div>
+
+<script>
+function submitForm() {
+    const id = document.getElementById("idNumber").value;
+    const name = document.getElementById("fullName").value;
+    const phone = document.getElementById("phone").value;
+
+    if(id === "" || name === "" || phone === "") {
+        alert("يرجى تعبئة جميع الحقول");
+        return;
+    }
+
+    const result = document.getElementById("result");
+    result.style.display = "block";
+    result.innerHTML = `
+        <strong>تم استلام البيانات بنجاح ✅</strong><br><br>
+        رقم الهوية: ${id}<br>
+        الاسم: ${name}<br>
+        رقم الهاتف: ${phone}
+    `;
+
+    console.log("بيانات المستخدم:", { id, name, phone });
+}
+</script>
+
+</body>
+</html>
